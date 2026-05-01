@@ -13,9 +13,12 @@
  *  }
  */
 
-import Anthropic from "@anthropic-ai/sdk";
-
-const client = new Anthropic();  // reads ANTHROPIC_API_KEY from env
+import OpenAI from "openai";
+import 'dotenv/config';
+const client = new OpenAI({
+  baseURL: "https://openrouter.ai/api/v1",
+  apiKey: process.env.OPENROUTER_API_KEY
+});  // reads OPENROUTER_API_KEY from env
 
 // ── System prompt ─────────────────────────────────────────────────────────────
 
@@ -41,13 +44,6 @@ You MUST respond with a single JSON object and nothing else. No markdown, no exp
 
 // ── Main function ─────────────────────────────────────────────────────────────
 
-/**
- * Triage a single support ticket using the LLM + retrieved snippets.
- *
- * @param {object} ticket   - { Issue, Subject, Company } (Company already resolved)
- * @param {object[]} snippets - Retrieved corpus docs from retriever.retrieve()
- * @returns {Promise<object>} - Structured triage result
- */
 export async function triageTicket(ticket, snippets) {
   const corpusBlock = snippets.length > 0
     ? snippets
@@ -68,32 +64,26 @@ ${corpusBlock}
 Triage this ticket. Respond ONLY with the JSON object described in your instructions.
 `.trim();
 
-  const message = await client.messages.create({
-    model: "claude-sonnet-4-6",
-    max_tokens: 1024,
-    system: SYSTEM_PROMPT,
-    messages: [{ role: "user", content: userMessage }],
+  const response = await client.chat.completions.create({
+    model: "meta-llama/llama-3.3-70b-instruct:free",  // free model on OpenRouter
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      { role: "user",   content: userMessage   },
+    ],
   });
 
-  const rawText = message.content
-    .filter((b) => b.type === "text")
-    .map((b) => b.text)
-    .join("")
-    .trim();
-
-  // Strip accidental markdown fences
+  const rawText = response.choices[0].message.content.trim();
   const cleaned = rawText.replace(/^```json\s*/i, "").replace(/```\s*$/i, "").trim();
 
   try {
     return JSON.parse(cleaned);
   } catch {
-    // Return a safe fallback if JSON parsing fails
     return {
-      status: "escalated",
-      product_area: "unknown",
-      response: "Unable to process this ticket automatically. Please review manually.",
+      status:        "escalated",
+      product_area:  "unknown",
+      response:      "Unable to process this ticket automatically. Please review manually.",
       justification: `LLM returned non-JSON output: ${rawText.slice(0, 200)}`,
-      request_type: "technical",
+      request_type:  "technical",
     };
   }
 }

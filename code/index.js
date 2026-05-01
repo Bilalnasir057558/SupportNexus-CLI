@@ -10,7 +10,7 @@
  *   node src/index.js triage [--tickets <csv>] [--data <dir>] [--out <dir>] [--top-k <n>]
  *   node src/index.js interactive
  */
-
+import 'dotenv/config';
 import path from "path";
 import { fileURLToPath } from "url";
 import readline from "readline";
@@ -66,7 +66,7 @@ async function runTriage(options) {
 
   const ticketsPath = options.tickets ?? path.join(ROOT, "support_tickets", "support_tickets.csv");
   const dataDir     = options.data    ?? path.join(ROOT, "data");
-  const outDir      = options.out     ?? path.join(ROOT, "output");
+  const outDir      = options.out     ?? path.join(ROOT, "support_tickets", "output.csv");
   const topK        = parseInt(options.topK ?? "5", 10);
 
   // 1. Load corpus
@@ -155,7 +155,7 @@ async function runTriage(options) {
   // 5. Write output
   console.log(chalk.bold.white("\n──────────────────────── OUTPUT ────────────────────────\n"));
   const jsonOut = path.join(outDir, "triage_results.json");
-  const csvOut  = path.join(outDir, "triage_results.csv");
+  const csvOut  = path.join(outDir, "output.csv");
   writeJSON(allResults, jsonOut);
   writeCSV(allResults,  csvOut);
 
