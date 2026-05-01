@@ -1,0 +1,21 @@
+{
+  "name": "rag-triage-agent",
+  "version": "1.0.0",
+  "description": "Terminal-based RAG support triage agent for HackerRank, Claude, and Visa",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "triage": "node src/index.js triage",
+    "interactive": "node src/index.js interactive"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.92.0",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.3",
+    "csv-parser": "^3.2.0",
+    "fuse.js": "^7.3.0",
+    "ora": "^9.4.0"
+  }
+}
