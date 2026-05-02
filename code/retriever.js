@@ -9,12 +9,12 @@ import Fuse from "fuse.js";
 // Fuse.js options – search in title, category, and content.
 const FUSE_OPTIONS = {
   includeScore: true,
-  threshold: 0.5,         // 0 = perfect match, 1 = match anything
+  threshold: 0.4,         // Lower for better matching
   minMatchCharLength: 3,
   keys: [
-    { name: "title",    weight: 0.4 },
-    { name: "category", weight: 0.2 },
-    { name: "content",  weight: 0.4 },
+    { name: "title",    weight: 0.5 },
+    { name: "category", weight: 0.3 },
+    { name: "content",  weight: 0.2 },
   ],
 };
 
@@ -63,8 +63,8 @@ export function buildRetriever(corpus) {
       company: item.company,
       category: item.category,
       title: item.title,
-      // Trim content to ~800 chars so we don't blow the context window
-      snippet: item.content.slice(0, 800).replace(/\s+/g, " ").trim(),
+      // Trim content to ~2500 chars so we don't blow the context window
+      snippet: item.content.slice(0, 2500).replace(/\s+/g, " ").trim(),
     }));
   }
 

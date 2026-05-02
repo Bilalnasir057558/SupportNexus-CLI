@@ -77,6 +77,23 @@ export function loadCorpus(dataDir) {
       content = "";
     }
 
+    content = cleanContent(content);
+
     return { id: rel, company, category, title, content };
   });
+}
+
+/**
+ * Clean the content by removing YAML frontmatter and image URLs.
+ * @param {string} content
+ * @returns {string}
+ */
+function cleanContent(content) {
+  // Remove YAML frontmatter
+  content = content.replace(/^---[\s\S]*?---\n/, "");
+
+  // Remove image URLs
+  content = content.replace(/!\[.*?\]\(.*?\)/g, "");
+
+  return content.trim();
 }

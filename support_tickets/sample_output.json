@@ -1,0 +1,102 @@
+[
+  {
+    "issue": "I notice that people I assigned the test in October of 2025 have not received new tests. How long do the tests stay active in the system.",
+    "subject": "Test Active in the system",
+    "company": "hackerrank",
+    "response": "",
+    "product_area": "HackerRank Tests",
+    "status": "escalated",
+    "request_type": "product_issue",
+    "justification": "No relevant corpus snippets found to answer the user's inquiry about HackerRank test active duration; escalating per rule 2 due to insufficient information."
+  },
+  {
+    "issue": "site is down & none of the pages are accessible",
+    "subject": "",
+    "company": "unknown",
+    "response": "We have escalated your report of a service outage to our engineering team. We apologize for the inconvenience and are working to resolve this as quickly as possible.",
+    "product_area": "outage",
+    "status": "escalated",
+    "request_type": "bug",
+    "justification": "Ticket reports a complete service outage affecting all users — escalated to engineering/ops team."
+  },
+  {
+    "issue": "I'm noticing that you all have many default versions of roles. (e.g. front end developer for react, angular, vue.js, etc.) What do you consider best practice \nfor when to create a new test versus create a variant of the test? What are the advantages and disadvantages of using variants?",
+    "subject": "When should I create a variant versus\n have a different test?",
+    "company": "hackerrank",
+    "response": "Thank you for contacting HackerRank Support. We do not have sufficient information available to answer your question about when to create a new test versus a test variant, or the advantages and disadvantages of using variants. Your ticket is being escalated to a specialized team for further assistance.",
+    "product_area": "Test Creation",
+    "status": "escalated",
+    "request_type": "product_issue",
+    "justification": "No relevant corpus snippets were found to address the user's inquiry about HackerRank test creation best practices, so the ticket is escalated per rule 2 requiring escalation when snippets lack enough info to answer safely."
+  },
+  {
+    "issue": "Hi there\n\nWe have sent a candidate a Hackerrank assessment already, but we have been informed that they require extra time. As the assessment is 105 minutes, they need an extra 50% extra time added (so around 53 minutes) in addition.\n\nPlease can you provide step-by-step instruction on how we are to reinvite them.\n\nDo we find their profile in 'Candidates' , put in Add time 53 minutes and then click 'reinvite' and send the email? The email to the candidate says 105 minutes as the duration though still so not sure how we can check?\n\nThanks",
+    "subject": "How to reinvite candidate to Hackerrank \nassessment and add extra time",
+    "company": "hackerrank",
+    "response": "If a candidate experiences an issue such as a power outage or loss of internet connection, you can reinvite them to retake the test at any time.",
+    "product_area": "Screen > Invite Candidates",
+    "status": "escalated",
+    "request_type": "product_issue",
+    "justification": "Corpus snippets only confirm candidates can be reinvited for test retakes in case of connectivity or power issues, but lack information on adding extra time to assessments, step-by-step reinvite instructions, or verifying assessment duration in invitation emails. Insufficient info to answer safely, so escalated."
+  },
+  {
+    "issue": "i signed up using google login on hackerrank community , so i do not have a separate hackerrank password. please delete my account\n",
+    "subject": "",
+    "company": "hackerrank",
+    "response": "You can find information on deleting your HackerRank account in our Manage Account FAQs article, which covers account deletion: https://help.hackerrank.com/articles/1917106962-manage-account-faqs.",
+    "product_area": "Manage Account",
+    "status": "escalated",
+    "request_type": "product_issue",
+    "justification": "The user requests account deletion, a high-risk account access issue per rule 3, and the corpus lacks sufficient info on deleting accounts for Google Auth users to answer safely."
+  },
+  {
+    "issue": "One of my claude conversations has some private info, i forgot to make a temporary chat, is there anything\n else that can be done? like delete etc?",
+    "subject": "",
+    "company": "claude",
+    "response": "",
+    "product_area": "Claude Privacy",
+    "status": "escalated",
+    "request_type": "product_issue",
+    "justification": "No relevant corpus snippets are available to address the user's query about deleting a Claude conversation containing private information, and the issue involves potential private data exposure, so escalation is required."
+  },
+  {
+    "issue": "What is the name of the actor in Iron Man?",
+    "subject": "Urgent, please help",
+    "company": "unknown",
+    "response": "Thank you for contacting our support team. We only provide assistance for HackerRank, Claude (by Anthropic), and Visa products. Unfortunately, we are unable to assist with your inquiry as it is unrelated to our supported products. If you have a question related to any of our supported products, please feel free to reach out again.",
+    "product_area": "out_of_scope",
+    "status": "replied",
+    "request_type": "invalid",
+    "justification": "The request is a general knowledge question unrelated to the supported products, with no relevant corpus snippets available. This is an out-of-scope request, so marked as invalid and replied."
+  },
+  {
+    "issue": "I bought Visa Traveller's Cheques from Citicorp and they were stolen in Lisbon last night. What do I do?",
+    "subject": "",
+    "company": "visa",
+    "response": "We are sorry to hear your Visa Traveller's Cheques were stolen. You can report a lost cheque and request a refund by contacting us via our traveller’s cheques contact page at https://www.visa.co.in/supporting-info/travelers-cheques-contact-us.html. For more information, visit our Visa Traveller's Cheques for Consumers page at https://www.visa.co.in/support/consumer/travelers-cheques.html.",
+    "product_area": "Visa Traveller's Cheques",
+    "status": "escalated",
+    "request_type": "product_issue",
+    "justification": "The ticket involves stolen Visa Traveller's Cheques, a fraud-related high-risk issue requiring escalation per rule 3. Corpus snippets only reference reporting lost cheques and contacting support via a dedicated page, but lack full instructions for stolen cheques, necessitating escalation."
+  },
+  {
+    "issue": "Where can I report a lost or stolen Visa card from India?",
+    "subject": "Card stolen",
+    "company": "visa",
+    "response": "Travel with Visa and you’ll have our tools, support and guidance every step of the way. Visit today to learn more about using Visa on your next adventure. https://www.visa.co.in/support/consumer/travel-support.html",
+    "product_area": "travel-support",
+    "status": "escalated",
+    "request_type": "product_issue",
+    "justification": "The corpus lacks information on reporting lost or stolen Visa cards in India. The issue involves fraud (stolen card), a high-risk ticket requiring escalation per rule 3."
+  },
+  {
+    "issue": "Thank you for helping me",
+    "subject": "",
+    "company": "unknown",
+    "response": "",
+    "product_area": "Unknown",
+    "status": "escalated",
+    "request_type": "invalid",
+    "justification": "No relevant corpus snippets are available to address this ticket, and the ticket lacks context about the related product or prior support interaction, sothere is insufficient information to safely respond or categorize the request per rule 2."
+  }
+]
