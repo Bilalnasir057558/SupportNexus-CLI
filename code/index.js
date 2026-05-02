@@ -28,7 +28,7 @@ const ROOT      = path.resolve(__dirname, "..");
 
 // Free tier = ~8 req/min → need at least 7.5s between calls.
 // We use 8s to be safe. Escalated tickets don't hit the LLM so those are free.
-const INTER_REQUEST_DELAY = 3000; // 20 req/min = 3s apart is safe
+const INTER_REQUEST_DELAY = 200; // fast mode
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
 // ── Banner ────────────────────────────────────────────────────────────────────
@@ -295,7 +295,7 @@ program.command("triage")
   .option("-t, --tickets <path>", "Custom input CSV path")
   .option("-d, --data <path>",    "Corpus data/ directory")
   .option("-o, --out <path>",     "Output CSV path")
-  .option("-k, --top-k <num>",    "Snippets to retrieve", "6")
+  .option("-k, --top-k <num>",    "Snippets to retrieve", "3")
   .action(runTriage);
 
 program.command("sample")
@@ -303,13 +303,13 @@ program.command("sample")
   .option("-t, --tickets <path>", "Custom sample CSV path")
   .option("-d, --data <path>",    "Corpus data/ directory")
   .option("-o, --out <path>",     "Output CSV path", path.join(ROOT, "support_tickets", "sample_output.csv"))
-  .option("-k, --top-k <num>",    "Snippets to retrieve", "6")
+  .option("-k, --top-k <num>",    "Snippets to retrieve", "3")
   .action(runSample);
 
 program.command("interactive")
   .description("Interactive REPL mode")
   .option("-d, --data <path>",    "Corpus data/ directory")
-  .option("-k, --top-k <num>",    "Snippets to retrieve", "6")
+  .option("-k, --top-k <num>",    "Snippets to retrieve", "3")
   .action(runInteractive);
 
 if (process.argv.length <= 2) process.argv.push("triage");

@@ -6,15 +6,15 @@
 
 import Fuse from "fuse.js";
 
-// Fuse.js options – search in title, category, and content.
+// Fuse.js options – search in title, category, and truncated content.
 const FUSE_OPTIONS = {
   includeScore: true,
-  threshold: 0.4,         // Lower for better matching
+  threshold: 0.5,         // Higher for faster search
   minMatchCharLength: 3,
   keys: [
-    { name: "title",    weight: 0.5 },
-    { name: "category", weight: 0.3 },
-    { name: "content",  weight: 0.2 },
+    { name: "title",        weight: 0.5 },
+    { name: "category",     weight: 0.3 },
+    { name: "searchContent", weight: 0.2 },
   ],
 };
 

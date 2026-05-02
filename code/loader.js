@@ -79,7 +79,7 @@ export function loadCorpus(dataDir) {
 
     content = cleanContent(content);
 
-    return { id: rel, company, category, title, content };
+    return { id: rel, company, category, title, content, searchContent: content.slice(0, 1000) };
   });
 }
 

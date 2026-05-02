@@ -28,7 +28,7 @@ const MODELS = [
 // Free tier = 20 req/min → 3s between calls is plenty safe.
 // We retry 429s with exponential backoff before trying the next model.
 const MAX_RETRIES_PER_MODEL = 2;
-const BASE_RETRY_DELAY      = 4000; // 4s first retry
+const BASE_RETRY_DELAY      = 1000; // 1s first retry
 
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
